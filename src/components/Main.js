@@ -1,40 +1,12 @@
 import React from 'react';
 import Card from './Card';
-import faker from 'faker';
+import mockData from 'constants/mockData';
 
 const KEYCODE_ENTER = 13;
 
 import 'styles/main.scss';
 
-const mockData = [{
-  types: []
-}, {
-  types: []
-}, {
-  types: []
-}, {
-  types: []
-}, {
-  types: []
-}];
-
-const LARGEST_DISCOUNT = 95;
-const MAX_TYPE_COUNT = 4;
-for (const element of mockData) {
-  element.name = faker.commerce.productName();
-  // At least 5% discount...
-  element.discountPercentage = Number.parseInt(Math.random() * LARGEST_DISCOUNT) + 5;
-
-  // Atleast 1 type exist...
-  const typeCount = Number.parseInt(Math.random() * MAX_TYPE_COUNT) + 1;
-  for (let i = 0; i < typeCount; i++) {
-    if (!element.types) element.types = [faker.commerce.product()];
-    element.types.push(faker.commerce.product());
-  }
-
-}
-
-class AppComponent extends React.Component {
+export default class AppComponent extends React.Component {
   constructor() {
     super();
     this.state = { filter: '' };
@@ -78,5 +50,3 @@ class AppComponent extends React.Component {
     );
   }
 }
-
-export default AppComponent;

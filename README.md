@@ -1,9 +1,10 @@
 [Online DEMO](http://davidguan.me/mock-cards-overview/)
 
 ## Why there are so many files?
-I'm using [my project boilerplate](https://github.com/EcutDavid/react-resetcss-dev-template) for setting up develop environment, most of the files come from it.  
-Instead of reading the files, you can read two PR below:
-[First PR: Implement basic functionality](https://github.com/EcutDavid/mock-cards-overview/pull/3)
+I'm using [my project boilerplate](https://github.com/EcutDavid/react-resetcss-dev-template) for setting up develop environment, most of the files come from it.   
+
+Instead of reading the files, you can read two PR below:   
+[First PR: Implement basic functionality](https://github.com/EcutDavid/mock-cards-overview/pull/3)   
 [Second PR: Implement basic styling](https://github.com/EcutDavid/mock-cards-overview/pull/4)
 
 

@@ -1,14 +1,17 @@
-$filterMarginLeftRight: 18px;
+@import './_settings.scss';
+
+$filterMinMarginLeftRight: 18px;
 
 body {
   text-align: center;
 
   .filter-input {
     position: relative;
+    margin: 30px auto 22px auto;
+    width: calc(100% - #{2 * $filterMinMarginLeftRight});
+    max-width: $cardsContainerMaxWidth;
 
     & > input {
-      margin: 30px $filterMarginLeftRight 19px $filterMarginLeftRight;
-      width: calc(100% - #{2 * $filterMarginLeftRight});
       height: auto;
       padding-right: 40px;
     }
@@ -18,9 +21,25 @@ body {
       height: 22px;
       display: inline-block;
       position: absolute;
-      right: 9px + $filterMarginLeftRight;
+      right: 9px;
       top: 5px;
       background: url('../images/search.png') no-repeat center center/cover;
+    }
+  }
+
+  .cards-container {
+    width: calc(100% - #{2 * $filterMinMarginLeftRight});
+    max-width: $cardsContainerMaxWidth;
+    margin: 10px auto;
+
+    @media(min-width: $desktopBreakPoint) {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    @media(min-width: $threeCardsPerRowBreakPoint) {
+      justify-content: space-between;
     }
   }
 }

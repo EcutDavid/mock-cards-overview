@@ -12,12 +12,16 @@ export default class AppComponent extends React.Component {
     this.state = { filter: '' };
   }
 
+  updateFilter() {
+    const { value } = this.refs.filterInput;
+    if (value !== this.state.filter) {
+      this.setState({ filter: value });
+    }
+  }
+
   keyHandle(event) {
     if (event.keyCode === KEYCODE_ENTER) {
-      const { value } = this.refs.filterInput;
-      if (value !== this.state.filter) {
-        this.setState({ filter: value });
-      }
+      this.updateFilter();
     }
   }
 
@@ -43,13 +47,15 @@ export default class AppComponent extends React.Component {
             onKeyUp={this.keyHandle.bind(this)}
             ref='filterInput'
           />
-          <i className='search-icon' />
+          <i className='search-icon' onClick={this.updateFilter.bind(this)} />
         </div>
-        {
-          this.filterCardsData().map((d, i) => (
-            <Card {...d} key={i} />
-          ))
-        }
+        <div className='cards-container'>
+          {
+            this.filterCardsData().map((d, i) => (
+              <Card {...d} key={i} />
+            ))
+          }
+        </div>
       </div>
     );
   }

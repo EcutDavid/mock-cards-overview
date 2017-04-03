@@ -566,7 +566,10 @@ $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
 
 $cardWidth: 280px;
+$cardHeight: 150px;
 $minCardMargin: 10px;
 $containerMargin: 20px;
 
 $desktopBreakPoint: $cardWidth * 2 + $minCardMargin + $containerMargin * 2;
+$threeCardsPerRowBreakPoint: $cardWidth * 3 + $minCardMargin * 2 + $containerMargin * 2;
+$cardsContainerMaxWidth: $cardWidth * 3 + $minCardMargin * 2 + 50px;

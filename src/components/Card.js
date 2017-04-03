@@ -20,6 +20,7 @@ export default class Card extends React.Component {
           </p>
         </section>
         <div className='details-button mobile' />
+        <div className='details-button desktop'>Details</div>
       </div>
     );
   }

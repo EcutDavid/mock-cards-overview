@@ -16,7 +16,7 @@ npm install
 // then
 npm start
 // then
-http://localhost:3000
+http://localhost:8300
 ```
 
 ## Video that records how this project built:

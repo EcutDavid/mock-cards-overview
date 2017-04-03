@@ -7,6 +7,15 @@ $cardBorder: 1px solid #c6c4c4;
   padding: 20px 0;
   border-top: $cardBorder;
   position: relative;
+  transform: rotateY(90deg);
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+
+
+  &.present {
+    opacity: 1;
+    transform: rotateY(0);
+  }
 
   @media(min-width: $desktopBreakPoint) {
     border-radius: 5px;

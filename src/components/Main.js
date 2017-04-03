@@ -9,7 +9,21 @@ import 'styles/main.scss';
 export default class AppComponent extends React.Component {
   constructor() {
     super();
-    this.state = { filter: '' };
+    // Should use deepcopy in real life application to prevent mockData src modified.
+    this.state = { filter: '', cards: mockData, presentedCardCount: 0 };
+  }
+
+  componentDidMount() {
+    let { cards, presentedCardCount } = this.state;
+
+    const presentCard = () => {
+      if (presentedCardCount !== cards.length) {
+        cards[presentedCardCount++].shouldPresent = true;
+        this.setState(cards);
+        setTimeout(presentCard, 100);
+      }
+    };
+    setTimeout(presentCard, 50);
   }
 
   updateFilter() {
@@ -26,12 +40,12 @@ export default class AppComponent extends React.Component {
   }
 
   filterCardsData() {
-    let { filter } = this.state;
+    let { filter, cards } = this.state;
     filter = filter.trim();
-    if (filter.trim() === '') return mockData;
+    if (filter.trim() === '') return cards;
 
     const regex = new RegExp(filter, 'i');
-    return mockData.filter(({name, types}) => {
+    return cards.filter(({name, types}) => {
       if (regex.test(name)) return true;
       if (types.some(d => regex.test(d))) return true;
     });

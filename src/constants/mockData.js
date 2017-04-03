@@ -24,6 +24,8 @@ for (const element of mockData) {
     if (!element.types) element.types = [faker.commerce.product()];
     element.types.push(faker.commerce.product());
   }
+
+  element.shouldPresent = false;
 }
 
 export default mockData;

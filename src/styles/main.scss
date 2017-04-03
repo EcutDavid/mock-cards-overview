@@ -1,3 +1,26 @@
+$filterMarginLeftRight: 18px;
+
 body {
   text-align: center;
+
+  .filter-input {
+    position: relative;
+
+    & > input {
+      margin: 30px $filterMarginLeftRight 19px $filterMarginLeftRight;
+      width: calc(100% - #{2 * $filterMarginLeftRight});
+      height: auto;
+      padding-right: 40px;
+    }
+    .search-icon {
+      cursor: pointer;
+      width: 26px;
+      height: 22px;
+      display: inline-block;
+      position: absolute;
+      right: 9px + $filterMarginLeftRight;
+      top: 5px;
+      background: url('../images/search.png') no-repeat center center/cover;
+    }
+  }
 }

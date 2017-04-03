@@ -26,21 +26,25 @@ export default class AppComponent extends React.Component {
     filter = filter.trim();
     if (filter.trim() === '') return mockData;
 
+    const regex = new RegExp(filter, 'i');
     return mockData.filter(({name, types}) => {
-      if (name.indexOf(filter) !== -1) return true;
-      if (types.some(d => d.indexOf(filter) !== -1)) return true;
+      if (regex.test(name)) return true;
+      if (types.some(d => regex.test(d))) return true;
     });
   }
 
   render() {
     return (
       <div className="index">
-        <input
-          type='text'
-          placeholder='input'
-          onKeyUp={this.keyHandle.bind(this)}
-          ref='filterInput'
-        />
+        <div className='filter-input'>
+          <input
+            type='text'
+            placeholder='Search coupons e.g. Amazon'
+            onKeyUp={this.keyHandle.bind(this)}
+            ref='filterInput'
+          />
+          <i className='search-icon' />
+        </div>
         {
           this.filterCardsData().map((d, i) => (
             <Card {...d} key={i} />

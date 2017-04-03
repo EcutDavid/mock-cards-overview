@@ -564,3 +564,9 @@ $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
+
+$cardWidth: 280px;
+$minCardMargin: 10px;
+$containerMargin: 20px;
+
+$desktopBreakPoint: $cardWidth * 2 + $minCardMargin + $containerMargin * 2;

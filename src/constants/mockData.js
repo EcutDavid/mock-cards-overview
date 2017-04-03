@@ -13,6 +13,7 @@ const MAX_TYPE_COUNT = 4;
 for (const element of mockData) {
   const providerIndex = Number.parseInt(Math.random() * providers.length);
   element.name = providers[providerIndex].couponName;
+  element.provider = providers[providerIndex].name;
 
   // At least 5% discount...
   element.discountPercentage = Number.parseInt(Math.random() * LARGEST_DISCOUNT) + 5;

@@ -42,7 +42,7 @@ export default class AppComponent extends React.Component {
   filterCardsData() {
     let { filter, cards } = this.state;
     filter = filter.trim();
-    if (filter.trim() === '') return cards;
+    if (filter === '') return cards;
 
     const regex = new RegExp(filter, 'i');
     return cards.filter(({name, types}) => {

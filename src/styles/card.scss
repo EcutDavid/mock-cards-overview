@@ -1,0 +1,206 @@
+@import './_settings.scss';
+
+$thumbnailHeight: 80px;
+$cardBorder: 1px solid #c6c4c4;
+
+.card {
+  padding: 20px 0;
+  border-top: $cardBorder;
+  position: relative;
+  transform: rotateY(90deg);
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+
+
+  &.present {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+
+  @media(min-width: $desktopBreakPoint) {
+    border-radius: 5px;
+    padding: 0;
+    width: $cardWidth;
+    height: $cardHeight;
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: $cardBorder;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+
+  .provider-thumbnail, .discount, .description, .details-button {
+    display: inline-block;
+    height: 45px;
+    cursor: default;
+  }
+
+  .provider-thumbnail {
+    width: 45px;
+    border: 0;
+    margin-right: 7px;
+
+    @media(min-width: $desktopBreakPoint) {
+      height: $thumbnailHeight;
+      width: 50%;
+      display: inline-block;
+      border: 0;
+      margin: 0;
+    }
+
+    &.amazon {
+      background: url('../images/amazon-icon.png') no-repeat center center/cover;
+    }
+
+    &.zalando {
+      background: url('../images/zalando-icon.png') no-repeat center center/cover;
+    }
+
+    &.notebooksbilliger {
+      background: url('../images/notebooksbilliger-icon.png') no-repeat center center/cover;
+    }
+
+    @media(min-width: $desktopBreakPoint) {
+      border-right: $cardBorder;
+
+      &.amazon {
+        background-image: url('../images/amazon-full.png');
+      }
+
+      &.zalando {
+        background-image: url('../images/zalando-full.png');
+      }
+
+      &.notebooksbilliger {
+        background-image: url('../images/notebooksbilliger-full.png');
+      }
+    }
+  }
+
+  .discount {
+    background-color: #f2fae7;
+    width: 45px;
+    margin-right: 7px;
+    overflow: hidden;
+    padding: 11px 0;
+
+    & > p {
+      font-weight: bold;
+      margin: 0;
+      color: #acd97b;
+      font-size: 8px;
+      line-height: 10px;
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      top: -10px;
+
+      &:nth-child(2) {
+        top: -21px;
+        color: #7ac339;
+        font-size: 10px;
+        word-spacing: -3.1px;
+      }
+    }
+
+    @media(min-width: $desktopBreakPoint) {
+      height: $thumbnailHeight;
+      width: 50%;
+      display: inline-block;
+      border: 0;
+      margin: 0;
+
+      & > p {
+        top: 6px;
+        font-size: 18px;
+
+        &:nth-child(2) {
+          top: 6px;
+          font-size: 24px;
+          word-spacing: -3.1px;
+
+          &:before {
+            content: '+'
+          }
+        }
+      }
+    }
+  }
+
+  .description {
+    text-overflow: ellipsis;
+    width: 165px;
+    overflow: hidden;
+    text-align: left;
+    margin-right: 12px;
+
+    & > h4, & > p {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    & > h4 {
+      margin: 10px 0 0 0;
+      font-size: 16px;
+      color: #585756;
+      line-height: 18px;
+      font-weight: bold;
+    }
+    & > p {
+      font-size: 10px;
+      top: -10px;
+      color: #9E9E9E;
+    }
+
+    @media(min-width: $desktopBreakPoint) {
+      padding: 0 11px;
+      border-top: $cardBorder;
+      margin: 0;
+      height: $cardHeight - $thumbnailHeight;
+      width: 100%;
+
+      & > p {
+        font-size: 12px;
+        top: 0px;
+        max-width: 203px;
+      }
+    }
+  }
+
+  .details-button {
+    width: 32px;
+    height: 30px;
+    background: url('../images/angle-right.png') no-repeat center center/cover;
+    cursor: pointer;
+    position: relative;
+    top: -5px;
+
+    &.desktop {
+      display: none;
+      background: none;
+      width: auto;
+      transform: translate($cardWidth - 60px, -34px);
+      color: #56cfd0;
+      border: 1px solid #56cfd0;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: bold;
+      height: auto;
+      padding: 4px 5px;
+    }
+
+    @media(min-width: $desktopBreakPoint) {
+      &.mobile {
+        display: none;
+      }
+
+      &.desktop {
+        display: block;
+      }
+    }
+  }
+}
